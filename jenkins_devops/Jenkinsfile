@@ -1,19 +1,23 @@
 pipeline {
     stages {
         stage('Initialize'){
-            echo "Docker processes"
-            sh "docker ps -a"
+            steps {
+                echo "Docker processes"
+                sh "docker ps -a"
 
-            echo "Docker images"
-            sh "docker images"
+                echo "Docker images"
+                sh "docker images"
+            }
         }
         stage('Docker image build'){
-            echo "Docker build is starting up...."
+            steps {
+                echo "Docker build is starting up...."
 
-            sh "cd challange_2_megoldas"
-            sh "docker build -t barrekft/zoli:build_from_jenkins ."
+                sh "cd challange_2_megoldas"
+                sh "docker build -t barrekft/zoli:build_from_jenkins ."
 
-            echo "...docker build is done!"
+                echo "...docker build is done!"
+            }
         }
     }
 }
