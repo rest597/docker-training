@@ -14,9 +14,10 @@ pipeline {
             steps {
                 echo "Docker build is starting up...."
 
-                sh "cd challange_2_megoldas && ls -al && docker build -t barrekft/zoli:build_from_jenkins ."
+                sh "cd challange_2_megoldas && ls -al && docker build -t barrekft/zoli:${env.BUILD_ID} ."
 
                 echo "...docker build is done!"
+                sh "docker images"
             }
         }
     }
