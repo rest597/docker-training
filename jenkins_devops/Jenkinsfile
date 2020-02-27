@@ -1,6 +1,20 @@
-node {
-    stage('First stage'){
-        echo "My first jenkins stage"
-        sh "docker ps -a"
+pipeline {
+    environment {
+        GIT_COMMIT_SHORT = sh(
+                script: "printf \$(git rev-parse --short ${GIT_COMMIT})",
+                returnStdout: true
+        )
     }
+
+    node {
+        stage('Initialize'){
+            echo "Docker build is starting up...."
+
+            echo "${env.GIT_COMMIT_SHORT}"
+            sh "docker ps -a"
+        }
+    }
+
+
 }
+
