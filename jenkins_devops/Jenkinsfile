@@ -1,5 +1,6 @@
 node {
     stage('First stage'){
         echo "My first jenkins stage"
+        sh "docker ps -a"
     }
 }
