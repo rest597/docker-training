@@ -26,7 +26,7 @@ pipeline {
 
                 sh "docker rm -f webszerverem || true"
 
-                sh "docker run -d -p --name webszerverem 8090:80 barrekft/zoli:${env.BUILD_ID}"
+                sh "docker run -d --name webszerverem -p 8090:80 barrekft/zoli:${env.BUILD_ID}"
 
                 echo "Deployment done"
             }
