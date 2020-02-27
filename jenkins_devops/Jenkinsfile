@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Initialize'){
             steps {
@@ -14,8 +14,7 @@ pipeline {
             steps {
                 echo "Docker build is starting up...."
 
-                sh "cd challange_2_megoldas"
-                sh "docker build -t barrekft/zoli:build_from_jenkins ."
+                sh "cd challange_2_megoldas && ls -al && docker build -t barrekft/zoli:build_from_jenkins ."
 
                 echo "...docker build is done!"
             }
