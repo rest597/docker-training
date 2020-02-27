@@ -1,1 +1,0 @@
-docker run --rm --it wernight/ngrok ngrok http localhost:8080
