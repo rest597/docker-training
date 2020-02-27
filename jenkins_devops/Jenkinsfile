@@ -20,5 +20,14 @@ pipeline {
                 sh "docker images"
             }
         }
+        stage('Startup new image'){
+            steps {
+                echo "Docker run"
+
+                sh "docker run -d -p 8090:80 barrekft/zoli:${env.BUILD_ID}"
+
+                echo "Deployment done"
+            }
+        }
     }
 }
